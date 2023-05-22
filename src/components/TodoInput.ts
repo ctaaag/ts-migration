@@ -1,4 +1,4 @@
-import { checkTodoItem } from '../utils/validationCheck.js';
+import { checkTodoItem } from '../utils/validationCheck';
 
 export default function TodoInput({ $formDiv, addTodo, customEvent }) {
   this.addTodo = addTodo;

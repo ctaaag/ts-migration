@@ -1,6 +1,7 @@
 const API_URL = 'https://todo-api.roto.codes';
 export default class TodoApi {
-  constructor(userName) {
+
+  constructor(userName:any) {
     this.requestURL = `${API_URL}/${userName}`;
   }
 

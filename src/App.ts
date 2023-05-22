@@ -1,10 +1,10 @@
-import TodoInput from './components/TodoInput.js';
-import TodoList from './components/TodoList.js';
-import TodoCount from './components/TodoCount.js';
-import Users from './components/Users.js';
+import TodoInput from './components/TodoInput';
+import TodoList from './components/TodoList';
+import TodoCount from './components/TodoCount';
+import Users from './components/Users';
 
-import TodoApi from './api/TodoApi.js';
-import { checkData } from './utils/validationCheck.js';
+import TodoApi from './api/TodoApi';
+import { checkData } from './utils/validationCheck';
 
 export default function App(formId, listId, userid) {
   this.formDiv = document.getElementById(formId);
