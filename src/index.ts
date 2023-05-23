@@ -1,4 +1,4 @@
 import App from './App';
+import'./index.css';
 
-
-new App('todo-form', 'todo-list', 'user-list');
+new (App as any)('todo-form', 'todo-list', 'user-list');

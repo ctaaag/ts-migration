@@ -1,9 +1,16 @@
+interface TodoList {
+  $listDiv:any,
+  state:any
+  checkCompleted:any
+  removeTodo:any
+}
+
 export default function TodoList({
   $listDiv,
   state,
   checkCompleted,
   removeTodo,
-}) {
+}:TodoList) {
   if (!new.target) {
     throw new Error('New 키워드를 추가해주세요');
   }
@@ -19,7 +26,7 @@ export default function TodoList({
     <ul>
       ${this.state.data
         .map(
-          (item) =>
+          (item:any) =>
             `<li data-id=${item._id}>
               <span class= "todo_text ${
                 item.isCompleted ? 'todo_strike' : ''
@@ -35,7 +42,7 @@ export default function TodoList({
       : todoListTemplate;
   };
 
-  $listDiv.addEventListener('click', (e) => {
+  $listDiv.addEventListener('click', (e:any) => {
     const clickTodoId = e.target.parentNode.dataset.id;
     if (e.target.classList.contains('todo_text')) {
       this.checkCompleted(clickTodoId);
@@ -45,7 +52,7 @@ export default function TodoList({
     }
   });
 
-  this.setState = (nextState) => {
+  this.setState = (nextState:any) => {
     this.state = nextState;
     this.render();
   };

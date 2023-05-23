@@ -15,4 +15,6 @@
 - webpack 설정 시 css import가 안되는 문제
 
 
-### 2. 명시적인 any로 타입 선언 점진적으로 하기
+### 2. 명시적인 any 타입 선언으로 점진적으로 마이그레이션하기
+- [x] ts.config 설정 noImplicitAny를 true로 변경
+- [x] 타입에러가 난 부분을 명시적으로 우선 any 타입으로 선언하기

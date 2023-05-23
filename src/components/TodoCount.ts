@@ -1,7 +1,12 @@
-export default function TodoCount({ $listDiv, state }) {
+interface TodoCount {
+  $listDiv:any,
+  state:any
+}
+
+export default function TodoCount({ $listDiv, state }:TodoCount) {
   this.state = state;
 
-  this.setState = (nextState) => {
+  this.setState = (nextState:any) => {
     this.state = nextState;
     this.render();
   };
@@ -9,7 +14,7 @@ export default function TodoCount({ $listDiv, state }) {
   this.render = () => {
     const totalTodo = this.state.data.length;
     const checkedTodo = this.state.data.filter(
-      (item) => item.isCompleted
+      (item:any) => item.isCompleted
     ).length;
 
     $listDiv.innerHTML += this.state.isLoading

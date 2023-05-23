@@ -1,4 +1,4 @@
-export const checkData = (data) => {
+export const checkData = (data:any) => {
   if (!data) {
     throw new Error('Data를 확인해주세요');
   }
@@ -12,7 +12,7 @@ export const checkData = (data) => {
   });
 };
 
-export const checkTodoItem = (data) => {
+export const checkTodoItem = (data:any) => {
   if (data.trim().length === 0) {
     throw new Error('Data를 입력해주세요');
   }

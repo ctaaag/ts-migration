@@ -1,6 +1,6 @@
 const API_URL = 'https://todo-api.roto.codes';
 export default class TodoApi {
-  requestURL:string;
+  requestURL:any;
   
   constructor(userName:any) {
     this.requestURL = `${API_URL}/${userName}`;
@@ -15,7 +15,7 @@ export default class TodoApi {
     }
   }
 
-  async getUserTodo(userName) {
+  async getUserTodo(userName:any) {
     try {
       this.requestURL = `${API_URL}/${userName}`;
       const response = await fetch(`${this.requestURL}?delay=500`);
@@ -25,7 +25,7 @@ export default class TodoApi {
     }
   }
 
-  async addTodo(newTodo) {
+  async addTodo(newTodo:any) {
     try {
       const response = await fetch(this.requestURL, {
         method: 'POST',
@@ -41,7 +41,7 @@ export default class TodoApi {
     }
   }
 
-  async removeTodo(todoId) {
+  async removeTodo(todoId:any) {
     try {
       const response = await fetch(`${this.requestURL}/${todoId}`, {
         method: 'DELETE',
@@ -63,7 +63,7 @@ export default class TodoApi {
     }
   }
 
-  async toggleTodo(todoId) {
+  async toggleTodo(todoId:any) {
     try {
       const response = await fetch(`${this.requestURL}/${todoId}/toggle`, {
         method: 'PUT',

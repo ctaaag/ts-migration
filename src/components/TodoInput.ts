@@ -1,6 +1,13 @@
 import { checkTodoItem } from '../utils/validationCheck';
 
-export default function TodoInput({ $formDiv, addTodo, customEvent }) {
+interface TodoInput {
+  $formDiv:any,
+  addTodo:any,
+  customEvent:any
+}
+
+
+export default function TodoInput({ $formDiv, addTodo, customEvent } :TodoInput) {
   this.addTodo = addTodo;
   this.customEvent = customEvent;
 
@@ -17,7 +24,7 @@ export default function TodoInput({ $formDiv, addTodo, customEvent }) {
   this.input = document.querySelector('.todo-input');
   this.removeBtn = document.querySelector('.removeAll-btn');
 
-  this.submitHandler = (e) => {
+  this.submitHandler = (e:any) => {
     e.preventDefault();
 
     const newData = this.input.value;
@@ -26,7 +33,7 @@ export default function TodoInput({ $formDiv, addTodo, customEvent }) {
     this.input.value = '';
   };
 
-  $formDiv.addEventListener('submit', (e) => {
+  $formDiv.addEventListener('submit', (e:any) => {
     this.submitHandler(e);
   });
 

@@ -6,7 +6,7 @@ import Users from './components/Users';
 import TodoApi from './api/TodoApi';
 import { checkData } from './utils/validationCheck';
 
-export default function App(formId, listId, userid) {
+export default function App(formId:any, listId:any, userid:any) {
   this.formDiv = document.getElementById(formId);
   this.listDiv = document.getElementById(listId);
   this.userDiv = document.getElementById(userid);
@@ -19,49 +19,49 @@ export default function App(formId, listId, userid) {
     await this.setfetchState();
   });
 
-  this.todoUser = new Users({
+  this.todoUser = new (Users as any)({
     $userDiv: this.userDiv,
     userName: this.userName,
     api: this.api,
-    onClickUser: (newUserName) => {
+    onClickUser: (newUserName:any) => {
       this.setUserName(newUserName);
     },
   });
 
-  this.todoList = new TodoList({
+  this.todoList = new (TodoList as any)({
     $listDiv: this.listDiv,
     state: this.state,
-    checkCompleted: async (todoId) => {
+    checkCompleted: async (todoId:any) => {
       await this.api.toggleTodo(todoId);
       await this.setfetchState();
     },
-    removeTodo: async (todoId) => {
+    removeTodo: async (todoId:any) => {
       await this.api.removeTodo(todoId);
       await this.setfetchState();
     },
   });
 
-  this.todoInput = new TodoInput({
+  this.todoInput = new (TodoInput as any)({
     $formDiv: this.formDiv,
-    addTodo: async (newTodo) => {
+    addTodo: async (newTodo:any) => {
       await this.api.addTodo(newTodo);
       await this.setfetchState();
     },
     customEvent: new CustomEvent('removeAll'),
   });
 
-  this.todoCount = new TodoCount({
+  this.todoCount = new (TodoCount as any)({
     $listDiv: this.listDiv,
     state: this.state,
   });
 
-  this.setUserName = (nextUserName) => {
+  this.setUserName = (nextUserName:any) => {
     this.userName = nextUserName;
 
     this.setfetchState();
   };
 
-  this.setState = (newState) => {
+  this.setState = (newState:any) => {
     checkData(newState.data);
     this.state = newState;
 
